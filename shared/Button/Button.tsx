@@ -1,5 +1,5 @@
 import { Pressable, PressableProps, StyleSheet, Text, View } from 'react-native';
-import { Colors, Fonts, Radius } from './tokens';
+import { Colors, Fonts, Radius } from '../tokens';
 
 type ButtonProps = PressableProps & { title: string };
 export function Button({ title, ...props }: ButtonProps) {
