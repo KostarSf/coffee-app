@@ -1,71 +1,75 @@
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Button } from '../shared/Button/Button';
+import { Colors, Fonts, Gaps, Letter } from '../shared/Button/tokens';
 
 export default function IntroScreen() {
     return (
-        <View style={styles.container}>
+        <ImageBackground
+            style={styles.container}
+            source={require('../assets/intro-background.png')}
+            imageStyle={styles.image}
+        >
             <StatusBar style="light" />
 
-            <View style={styles.content}>
-                <View style={styles.titles}>
-                    <Text style={styles.title}>Один из самых вкусных кофе в городе!</Text>
-                    <Text style={styles.subtitle}>
-                        Свежие зёрна, настоящая арабика и бережная обжарка
-                    </Text>
-                </View>
+            <SafeAreaView style={styles.safeArea}>
+                <View style={styles.content}>
+                    <View style={styles.titles}>
+                        <Text style={styles.title}>Один из самых вкусных кофе в городе!</Text>
+                        <Text style={styles.subtitle}>
+                            Свежие зёрна, настоящая арабика и бережная обжарка
+                        </Text>
+                    </View>
 
-                <Pressable style={styles.button}>
-                    <Text style={styles.buttonText}>Начать</Text>
-                </Pressable>
-            </View>
-        </View>
+                    <Button title="Начать" />
+                </View>
+            </SafeAreaView>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: Colors.black,
+    },
+
+    image: {
+        resizeMode: 'contain',
+        width: '120%',
+        marginLeft: '-10%',
+        marginTop: '-90%',
+    },
+
+    safeArea: {
+        flex: 1,
         justifyContent: 'flex-end',
-        backgroundColor: 'black',
     },
 
     content: {
         paddingHorizontal: 30,
         paddingVertical: 10,
-        gap: 24,
+        gap: Gaps.g24,
     },
 
     titles: {
-        gap: 8,
+        gap: Gaps.g8,
         alignItems: 'center',
     },
 
     title: {
-        color: 'white',
-        fontSize: 34,
+        color: Colors.white,
+        fontSize: Fonts.f34,
         fontWeight: '600',
         textAlign: 'center',
-        letterSpacing: 0.5,
+        letterSpacing: Letter.l1,
     },
 
     subtitle: {
         maxWidth: 300,
-        color: '#A9A9A9',
-        fontSize: 14,
+        color: Colors.gray,
+        fontSize: Fonts.f14,
         textAlign: 'center',
-        letterSpacing: 0.5,
-    },
-
-    button: {
-        padding: 20,
-        backgroundColor: '#C67C4E',
-        borderRadius: 16,
-    },
-
-    buttonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: '600',
-        textAlign: 'center',
+        letterSpacing: Letter.l1,
     },
 });
