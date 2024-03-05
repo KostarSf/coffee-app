@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Dimensions, ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Button } from '../shared/Button/Button';
 import { Colors, Fonts, Gaps, Letter } from '../shared/tokens';
+import { AnimatedView } from '../shared/AnimatedView/AnimatedView';
 
 export default function IntroScreen() {
     return (
@@ -15,13 +16,19 @@ export default function IntroScreen() {
             <SafeAreaView style={styles.safeArea}>
                 <View style={styles.content}>
                     <View style={styles.titles}>
-                        <Text style={styles.title}>Один из самых вкусных кофе в городе!</Text>
-                        <Text style={styles.subtitle}>
-                            Свежие зёрна, настоящая арабика и бережная обжарка
-                        </Text>
+                        <AnimatedView yOffset={-70} duration={800}>
+                            <Text style={styles.title}>Один из самых вкусных кофе в городе!</Text>
+                        </AnimatedView>
+                        <AnimatedView yOffset={-10} duration={500} delay={700}>
+                            <Text style={styles.subtitle}>
+                                Свежие зёрна, настоящая арабика и бережная обжарка
+                            </Text>
+                        </AnimatedView>
                     </View>
 
-                    <Button title="Начать" />
+                    <AnimatedView yOffset={40} duration={1000} delay={1200}>
+                        <Button title="Начать" />
+                    </AnimatedView>
                 </View>
             </SafeAreaView>
         </ImageBackground>
