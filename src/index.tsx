@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Button } from '../shared/Button/Button';
 import { Colors, Fonts, Gaps, Letter } from '../shared/tokens';
 
@@ -35,10 +35,9 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        resizeMode: 'contain',
-        width: '120%',
-        marginLeft: '-10%',
-        marginTop: '-90%',
+        objectFit: 'cover',
+        marginTop: -200,
+        height: '100%',
     },
 
     safeArea: {
