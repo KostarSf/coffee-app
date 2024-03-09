@@ -3,6 +3,7 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { AnimatedView } from '../shared/AnimatedView/AnimatedView';
 import { Button } from '../shared/Button/Button';
 import { Colors, Fonts, Gaps, Letter } from '../shared/tokens';
+import { router } from 'expo-router';
 
 export default function IntroScreen() {
     return (
@@ -26,7 +27,7 @@ export default function IntroScreen() {
                 </View>
 
                 <AnimatedView yOffset={40} duration={1000} delay={1200}>
-                    <Button title="Начать" />
+                    <Button title="Начать" onPress={() => router.push('(app)/(catalog)/catalog')} />
                 </AnimatedView>
             </View>
         </ImageBackground>
