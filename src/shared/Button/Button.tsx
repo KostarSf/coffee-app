@@ -43,6 +43,6 @@ const styles = StyleSheet.create({
     text: {
         color: Colors.white,
         fontSize: Fonts.f16,
-        fontWeight: '600',
+        fontFamily: Fonts.semiBold,
     },
 });
