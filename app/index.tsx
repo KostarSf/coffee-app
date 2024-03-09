@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { Dimensions, ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { AnimatedView } from '../shared/AnimatedView/AnimatedView';
 import { Button } from '../shared/Button/Button';
 import { Colors, Fonts, Gaps, Letter } from '../shared/tokens';
-import { AnimatedView } from '../shared/AnimatedView/AnimatedView';
 
 export default function IntroScreen() {
     return (
