@@ -1,13 +1,13 @@
 import { Link } from 'expo-router';
 import { Text, View } from 'react-native';
 
-export default function OrderScreen() {
+export default function CartScreen() {
     return (
         <View>
-            <Link href={'success'}>
+            <Link href="/success">
                 <Text>Заказать</Text>
             </Link>
-            <Link href={'address'}>
+            <Link href="/address">
                 <Text>Изменить адрес</Text>
             </Link>
         </View>

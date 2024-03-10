@@ -27,7 +27,7 @@ export default function IntroScreen() {
                 </View>
 
                 <AnimatedView yOffset={40} duration={1000} delay={1200}>
-                    <Button title="Начать" onPress={() => router.push('(app)/(catalog)/catalog')} />
+                    <Button title="Начать" onPress={() => router.replace('/catalog')} />
                 </AnimatedView>
             </View>
         </ImageBackground>
