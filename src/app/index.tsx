@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { Dimensions, ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { AnimatedView } from '../shared/AnimatedView/AnimatedView';
 import { Button } from '../shared/Button/Button';
 import { Colors, Fonts, Gaps, Letter } from '../shared/tokens';
+import { router } from 'expo-router';
 
 export default function IntroScreen() {
     return (
@@ -12,18 +14,22 @@ export default function IntroScreen() {
         >
             <StatusBar style="light" />
 
-            <SafeAreaView style={styles.safeArea}>
-                <View style={styles.content}>
-                    <View style={styles.titles}>
+            <View style={styles.content}>
+                <View style={styles.titles}>
+                    <AnimatedView yOffset={-70} duration={800}>
                         <Text style={styles.title}>Один из самых вкусных кофе в городе!</Text>
+                    </AnimatedView>
+                    <AnimatedView yOffset={-10} duration={500} delay={700}>
                         <Text style={styles.subtitle}>
                             Свежие зёрна, настоящая арабика и бережная обжарка
                         </Text>
-                    </View>
-
-                    <Button title="Начать" />
+                    </AnimatedView>
                 </View>
-            </SafeAreaView>
+
+                <AnimatedView yOffset={40} duration={1000} delay={1200}>
+                    <Button title="Начать" onPress={() => router.replace('/catalog')} />
+                </AnimatedView>
+            </View>
         </ImageBackground>
     );
 }
@@ -32,17 +38,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Colors.black,
+        justifyContent: 'flex-end',
     },
 
     image: {
         objectFit: 'cover',
         marginTop: -200,
         height: '100%',
-    },
-
-    safeArea: {
-        flex: 1,
-        justifyContent: 'flex-end',
     },
 
     content: {
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     title: {
         color: Colors.white,
         fontSize: Fonts.f34,
-        fontWeight: '600',
+        fontFamily: Fonts.semiBold,
         textAlign: 'center',
         letterSpacing: Letter.l1,
     },
@@ -68,6 +70,7 @@ const styles = StyleSheet.create({
         maxWidth: 300,
         color: Colors.gray,
         fontSize: Fonts.f14,
+        fontFamily: Fonts.regular,
         textAlign: 'center',
         letterSpacing: Letter.l1,
     },
